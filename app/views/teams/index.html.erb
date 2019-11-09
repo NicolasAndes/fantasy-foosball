@@ -1,0 +1,39 @@
+<% content_for :page_title, "Team Index" %>
+
+<section class="section">
+	<div class="container">
+		<nav class="level">
+			<!-- Left side -->
+			<div class="level-left">
+				<p class="level-item">
+					<%= link_to "Create New Team", new_team_path, class: "button is-info" %>
+				</p>
+			</div>
+		</nav>
+
+		<hr>
+		
+		<% if @teams.empty? %>
+			<h1 class="title is-large has-text-centered">No Teams</h1>
+		<% else %>
+			<div class="columns is-mobile is-multiline is-centered">
+				<% @teams.each do |team| %>
+					<div class="column is-narrow">
+						<div class="card">
+							<header class="card-header">
+								<p class="card-header-title is-medium">
+								  <%= link_to team.name, team %>
+								</p>
+							</header>
+							<div class="card-content">
+								<div class="content">
+									<%= " Player: #{team.player} " %>
+								</div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</section>

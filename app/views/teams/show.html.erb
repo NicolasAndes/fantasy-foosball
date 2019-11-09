@@ -1,0 +1,34 @@
+<% content_for :page_title, "Team Info" %>
+
+<section class="section">
+	<div class="container">
+		<div class="card">
+		  <header class="card-header">
+		    <p class="card-header-title is-medium">
+		      <%= @team.name %>
+		    </p>
+		    <a href="#" class="card-header-icon" aria-label="more options">
+		      <span class="icon">
+		        <i class="fas fa-angle-down" aria-hidden="true"></i>
+		      </span>
+		    </a>
+		  </header>
+			<div class="card-content">
+			    <div class="content">
+			      	<p class="card-title">
+			      		<% if @team.player == 1 %>
+							<%= "#{@team.player} player" %>
+						<% else %>
+							<%= "#{@team.player} players" %>
+						<% end %>
+					</pS>
+			    </div>
+			</div>
+			<footer class="card-footer">
+				<%= link_to "Edit", edit_team_path(@team), class: "card-footer-item button is-info" %>
+
+				<%= link_to "Delete", team_path(@team), method: :delete, data: { confirm: "Are you sure?"}, class: "card-footer-item button is-danger" %>
+			</footer>
+		</div>
+	</div>
+</section>

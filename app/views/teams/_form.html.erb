@@ -1,0 +1,15 @@
+<div class="section">
+	<%= simple_form_for @team do |f| %>
+	<div class="field">
+		<div class="control">
+			<%= f.input :name, input_html: { class: 'input', placeholder: 'Team Name' }, wrapper: false, label_html: { class: 'label' } %>
+		</div>
+	</div>
+	<div class="field">
+		<div class="control">
+			<%= f.input :player, collection: 1..2, prompt: "Select no. of player", input_html: { class: 'input' }, wrapper: false  %>
+		</div>
+	</div>
+	<%= f.button :submit, class: "button is-primary" %>
+	<% end %>
+</div>
