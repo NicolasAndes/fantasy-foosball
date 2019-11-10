@@ -1,0 +1,31 @@
+<% content_for :page_title, "Team Rankings" %>
+
+
+<section class="section">
+	<div class="container">
+		<table class="table is-fullwidth">
+		  <thead>
+		    <tr>
+		      <th><abbr title="Team">Team</abbr></th>
+		      <th>Team</th>
+		      <th><abbr title="Won">W</abbr></th>
+		      <th><abbr title="Lost">L</abbr></th>
+		      <th><abbr title="Percentage">Pct</abbr></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+
+			<% @teams.each do |team| %>
+			    <tr>
+			      <th><%= team.id %></th>
+			      <td><%= team.name %></td>
+			      <td>38</td>
+			      <td>23</td>
+			      <td>12</td>
+			    </tr>
+			<% end %>
+
+		  </tbody>
+		</table>
+	</div>
+</section>

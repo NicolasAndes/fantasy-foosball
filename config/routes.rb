@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   
   resources :users
   resources :teams
+  resources :matches
   
-  root "users#index"
+  root "teams#ranking"
 
 end

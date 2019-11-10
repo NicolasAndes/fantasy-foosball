@@ -1,0 +1,27 @@
+<% content_for :page_title, "Match Info" %>
+
+<section class="section">
+	<div class="container">
+		<div class="card">
+		  <header class="card-header">
+		    <p class="card-header-title is-medium is-centered">
+		      <%= @match.name %>
+		    </p>
+		  </header>
+			<div class="card-content">
+			    <div class="content">
+			      	<p class="card-title has-text-centered">
+			      		<% team1 = Team.find(@match.first_team.to_i) %>
+						<% team2 = Team.find(@match.second_team.to_i) %>
+						<%= "#{team1.name} VS. #{team2.name}" %>
+					</p>
+			    </div>
+			</div>
+			<footer class="card-footer">
+				<%= link_to "Edit", edit_match_path(@match), class: "card-footer-item button is-info" %>
+
+				<%= link_to "Delete", match_path(@match), method: :delete, data: { confirm: "Are you sure?"}, class: "card-footer-item button is-danger" %>
+			</footer>
+		</div>
+	</div>
+</section>

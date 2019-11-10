@@ -1,0 +1,44 @@
+<% content_for :page_title, "Match Index" %>
+
+<section class="section">
+	<div class="container">
+		<nav class="level">
+			<!-- Left side -->
+			<div class="level-left">
+				<p class="level-item">
+					<%= link_to "Create New Match", new_match_path, class: "button is-info" %>
+				</p>
+			</div>
+		</nav>
+
+		<hr>
+		
+		<% if @matches.empty? %>
+			<h1 class="title is-large has-text-centered">No Match Record</h1>
+		<% else %>
+			<div class="columns is-mobile is-multiline is-centered">
+				<% @matches.each do |match| %>
+					<div class="column is-narrow">
+						<div class="card">
+							<header class="card-header">
+								<p class="card-header-title is-medium is-centered">
+								  <%= link_to match.name, match %>
+								</p>
+							</header>
+							<div class="card-content">
+								<div class="content">
+									<% team1 = Team.find(match.first_team.to_i) %>
+									<% team2 = Team.find(match.second_team.to_i) %>
+									<%= "#{team1.name} VS. #{team2.name}" %>
+								</div>
+							</div>
+							<footer class="card-footer">
+								<%= link_to "Manage Games", "#", class: "card-footer-item button is-success" %>
+							</footer>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</section>
