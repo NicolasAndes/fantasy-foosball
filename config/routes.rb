@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :teams
   resources :matches
   
-  root "teams#ranking"
+  root 'teams#ranking'
+
+  patch '/matches/:id/games', to: 'matches#game', as: 'games'
 
 end

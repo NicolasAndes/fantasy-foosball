@@ -13,9 +13,7 @@
 
 		<hr>
 		
-		<% if @matches.empty? %>
-			<h1 class="title is-large has-text-centered">No Match Record</h1>
-		<% else %>
+		<% if @matches.any? %>
 			<div class="columns is-mobile is-multiline is-centered">
 				<% @matches.each do |match| %>
 					<div class="column is-narrow">
@@ -27,18 +25,20 @@
 							</header>
 							<div class="card-content">
 								<div class="content">
-									<% team1 = Team.find(match.first_team.to_i) %>
-									<% team2 = Team.find(match.second_team.to_i) %>
+									<% team1 = Team.find(match.home_team_id.to_i) %>
+									<% team2 = Team.find(match.away_team_id.to_i) %>
 									<%= "#{team1.name} VS. #{team2.name}" %>
 								</div>
 							</div>
 							<footer class="card-footer">
-								<%= link_to "Manage Games", "#", class: "card-footer-item button is-success" %>
+								<%= link_to "Manage Games", match_path(match), class: "card-footer-item button is-success" %>
 							</footer>
 						</div>
 					</div>
 				<% end %>
 			</div>
+		<% else %>
+			<h1 class="title is-large has-text-centered">No Match Record</h1>
 		<% end %>
 	</div>
 </section>

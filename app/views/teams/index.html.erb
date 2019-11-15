@@ -13,9 +13,7 @@
 
 		<hr>
 		
-		<% if @teams.empty? %>
-			<h1 class="title is-large has-text-centered">No Teams</h1>
-		<% else %>
+		<% if @teams.any? %>
 			<div class="columns is-mobile is-multiline is-centered">
 				<% @teams.each do |team| %>
 					<div class="column is-narrow">
@@ -34,6 +32,8 @@
 					</div>
 				<% end %>
 			</div>
+		<% else %>
+			<h1 class="title is-large has-text-centered">No Team Record</h1>
 		<% end %>
 	</div>
 </section>

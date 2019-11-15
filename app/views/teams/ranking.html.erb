@@ -3,25 +3,33 @@
 
 <section class="section">
 	<div class="container">
-		<table class="table is-fullwidth">
+		<table class="table is-fullwidth has-text-centered">
 		  <thead>
 		    <tr>
-		      <th><abbr title="Team">Team</abbr></th>
+		      <th>ID</th>
 		      <th>Team</th>
-		      <th><abbr title="Won">W</abbr></th>
-		      <th><abbr title="Lost">L</abbr></th>
-		      <th><abbr title="Percentage">Pct</abbr></th>
+		      <th>Match Played</th>
+		      <th>Win</th>
+		      <th>Lost</th>
+		      <th>Percentage</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-
+			
 			<% @teams.each do |team| %>
+				<% match_played = Match.where(home_team_id: team.id).or(Match.where(away_team_id: team.id)).count %>
+				<% match_win = Match.where(match_winner: team.id).count %>
 			    <tr>
 			      <th><%= team.id %></th>
 			      <td><%= team.name %></td>
-			      <td>38</td>
-			      <td>23</td>
-			      <td>12</td>
+			      <td>
+			      	<%= match_played %>
+	    	      </td>
+			      <td>
+			      	<%= match_win %>
+			      </td>
+			      <td><%= match_played - match_win %></td>
+			      <td><%= (match_win.to_f / match_played).round(2) %></td>
 			    </tr>
 			<% end %>
 

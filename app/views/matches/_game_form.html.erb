@@ -1,0 +1,138 @@
+<%= simple_form_for(@match, url: games_path) do |f| %>
+
+	<div class="card">
+		<header class="card-header">
+			<p class="card-header-title is-medium">
+			  <strong>Game 1</strong>
+			</p>
+			<a href="#" class="card-header-icon" aria-label="more options">
+			  <span class="icon">
+			    <i class="fas fa-angle-down" aria-hidden="true"></i>
+			  </span>
+			</a>
+		</header>
+		<div class="card-content">
+		    <div class="content">
+		      	<nav class="level">
+					<div class="level-item has-text-centered">
+						<div>
+							<% home_team = Team.find(@match.home_team_id.to_i) %>
+							<h2 class="heading"><%= home_team.name %></h2>
+							<div class="select is-primary">
+							  	<%= f.input :game1_home_team_score, collection: 0...11, prompt: "Select Score", wrapper: false, input_html: { id: "g1_ht_sc", class: 'input' }, label: false %>
+							</div>
+						</div>
+					</div>
+					<div class="level-item has-text-centered">
+						<div>
+							<% away_team = Team.find(@match.away_team_id.to_i) %>
+						  	<h2 class="heading"><%= away_team.name %></h2>
+							<div class="select is-primary">
+							  	<%= f.input :game1_away_team_score, collection: 0...11, prompt: "Select Score", wrapper: false, input_html: { id: "g1_at_sc", class: 'input' }, label: false %>
+							</div>
+						</div>
+					</div>
+					<div class="level-item has-text-centered">
+						<div>
+							<p>Winner</p>
+							<h6 id="g1_winner" class="heading"></h6>
+						</div>
+					</div>
+				</nav>
+		    </div>
+		</div>
+	</div>
+	<br>
+	<div class="card">
+		<header class="card-header">
+			<p class="card-header-title is-medium">
+			  <strong>Game 2</strong>
+			</p>
+			<a href="#" class="card-header-icon" aria-label="more options">
+			  <span class="icon">
+			    <i class="fas fa-angle-down" aria-hidden="true"></i>
+			  </span>
+			</a>
+		</header>
+		<div class="card-content">
+		    <div class="content">
+		      	<nav class="level">
+					<div class="level-item has-text-centered">
+						<div>
+							<% home_team = Team.find(@match.home_team_id.to_i) %>
+							<h2 class="heading"><%= home_team.name %></h2>
+							<div class="select is-primary">
+							  	<%= f.input :game2_home_team_score, collection: 0...11, prompt: "Select Score", wrapper: false, input_html: { id: "g2_ht_sc", class: 'input' }, label: false %>
+							</div>
+						</div>
+					</div>
+					<div class="level-item has-text-centered">
+						<div>
+							<% away_team = Team.find(@match.away_team_id.to_i) %>
+						  	<h2 class="heading"><%= away_team.name %></h2>
+							<div class="select is-primary">
+							  	<%= f.input :game2_away_team_score, collection: 0...11, prompt: "Select Score", wrapper: false, input_html: { id: "g2_at_sc", class: 'input' }, label: false %>
+							</div>
+						</div>
+					</div>
+					<div class="level-item has-text-centered">
+						<div>
+							<p>Winner</p>
+							<h6 id="g2_winner" class="heading"></h6>
+						</div>
+					</div>
+				</nav>
+		    </div>
+		</div>
+	</div>
+	<br>
+	<div  id="g3" class="card hide">
+		<header class="card-header">
+			<p class="card-header-title is-medium">
+			  <strong>Game 3</strong>
+			</p>
+			<a href="#" class="card-header-icon" aria-label="more options">
+			  <span class="icon">
+			    <i class="fas fa-angle-down" aria-hidden="true"></i>
+			  </span>
+			</a>
+		</header>	
+		<div class="card-content">
+		    <div class="content">
+		      	<nav class="level">
+					<div class="level-item has-text-centered">
+						<div>
+							<% home_team = Team.find(@match.home_team_id.to_i) %>
+							<h2 class="heading"><%= home_team.name %></h2>
+							<div class="select is-primary">
+							  	<%= f.input :game3_home_team_score, collection: 0...11, prompt: "Select Score", wrapper: false, input_html: { id: "g3_ht_sc", class: 'input' }, label: false %>
+							</div>
+						</div>
+					</div>
+					<div class="level-item has-text-centered">
+						<div>
+							<% away_team = Team.find(@match.away_team_id.to_i) %>
+						  	<h2 class="heading"><%= away_team.name %></h2>
+							<div class="select is-primary">
+							  	<%= f.input :game3_away_team_score, collection: 0...11, prompt: "Select Score", wrapper: false, input_html: { id: "g3_at_sc", class: 'input' }, label: false %>
+							</div>
+						</div>
+					</div>
+					<div class="level-item has-text-centered">
+						<div>
+							<p>Winner</p>
+							<h6 id="g3_winner" class="heading"></h6>
+						</div>
+					</div>
+				</nav>
+		    </div>
+		</div>
+	</div>
+
+	<br>
+	<%= f.button :submit, 'Save Game', class: "button is-primary" %>
+	
+<% end %>
+
+
+

@@ -7,9 +7,13 @@
 	</div>
 	<div class="field">
 		<div class="control">
-			<%= f.input :player, collection: 1..2, prompt: "Select no. of player", input_html: { class: 'input' }, wrapper: false  %>
+			<h1 class="heading">No. of Player:</h1>
+			<div class="select is-primary">
+				<%= f.input :player, collection: 1..2, prompt: "Select no. of player", input_html: { class: 'input' }, wrapper: false, label: false  %>
+			</div>
 		</div>
 	</div>
+	<br>
 	<%= f.button :submit, class: "button is-primary" %>
 	<% end %>
 </div>

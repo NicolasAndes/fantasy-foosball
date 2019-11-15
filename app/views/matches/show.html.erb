@@ -11,8 +11,8 @@
 			<div class="card-content">
 			    <div class="content">
 			      	<p class="card-title has-text-centered">
-			      		<% team1 = Team.find(@match.first_team.to_i) %>
-						<% team2 = Team.find(@match.second_team.to_i) %>
+			      		<% team1 = Team.find(@match.home_team_id.to_i) %>
+						<% team2 = Team.find(@match.away_team_id.to_i) %>
 						<%= "#{team1.name} VS. #{team2.name}" %>
 					</p>
 			    </div>
@@ -25,3 +25,11 @@
 		</div>
 	</div>
 </section>
+
+<div class="section">
+	<div class="container">
+		<h1 class="title">Game Score</h1>
+		<hr>
+		<%= render 'game_form' %>
+	</div>
+</div>

@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section is-centered">
 	<%= simple_form_for @match do |f| %>
 	<div class="field">
 		<div class="control">
@@ -7,164 +7,28 @@
 	</div>
 
 	<div class="columns">
+		<div class="column"></div>
 	  	<div class="column">
 			<div class="field">
 				<div class="control">
-					<%= f.input :first_team, collection: @teams, prompt: "Select a Team", wrapper: false, input_html: { class: 'input' }, label_html: { class: 'label' }  %>
-					<!-- <div class="select is-primary">
-						<select name=<% :first_team %>>
-							<option>Select dropdown</option>
-							<option value=1>Team One</option>
-							<option value=2>Team Two</option>
-							<option value=3>Team Three</option>
-							<option value=4>Team Four</option>
-						</select>
-				    </div> -->
+					<h1 class="title">Home Team</h1>
+					<div class="select is-primary">
+						<%= f.input :home_team_id, collection: Team.all.collect {|team| [team.name, team.id] }, label_method: :first, value_method: :second, prompt: "Select a Team", wrapper: false, input_html: { id: 'home', class: 'input' }, label: false %>
+					</div>
 				</div>
 			</div>
 	  	</div>
 	  	<div class="column">
 			<div class="field">
 				<div class="control">
-					<%= f.input :second_team, collection: @teams, prompt: "Select a Team", wrapper: false, input_html: { class: 'input' }, label_html: { class: 'label' }  %>
-					<!-- <div class="select is-primary">
-				      <select name=<% :second_team %>>
-				        <option>Select dropdown</option>
-							<option value=1>Team One</option>
-							<option value=2>Team Two</option>
-							<option value=3>Team Three</option>
-							<option value=4>Team Four</option>
-				      </select>
-				    </div> -->
+					<h1 class="title">Away Team</h1>
+					<div class="select is-primary">
+					<%= f.input :away_team_id, collection: Team.all.collect {|team| [team.name, team.id] }, label_method: :first, value_method: :second, prompt: "Select a Team", wrapper: false, input_html: { id: 'away', class: 'input' }, label: false %>
+					</div>
 				</div>
 			</div>
 	  	</div>
-	</div>
-
-	<hr>
-
-	<h1 class="title">Games Score</h1>
-
-	<div class="card">
-		<header class="card-header">
-			<p class="card-header-title is-medium">
-			  <strong>Game 1</strong>
-			</p>
-			<a href="#" class="card-header-icon" aria-label="more options">
-			  <span class="icon">
-			    <i class="fas fa-angle-down" aria-hidden="true"></i>
-			  </span>
-			</a>
-		</header>
-		<div class="card-content">
-		    <div class="content">
-		      	<nav class="level">
-					<div class="level-item has-text-centered">
-						<div>
-						  	<h2 class="heading">Team 1</h2>
-						  	<div class="select is-primary">
-						      <select>
-						        <option>Select Score</option>
-						        <option value="">0</option>
-						        <option value="">1</option>
-						        <option value="">2</option>
-						        <option value="">3</option>
-						        <option value="">4</option>
-						        <option value="">5</option>
-						        <option value="">6</option>
-						        <option value="">7</option>
-						        <option value="">8</option>
-						        <option value="">9</option>
-						        <option value="">10</option>
-						      </select>
-						    </div>
-						</div>
-					</div>
-					<div class="level-item has-text-centered">
-						<div>
-						  	<h2 class="heading">Team 2</h2>
-						  	<div class="select is-primary">
-						      <select>
-						        <option>Select Score</option>
-						        <option value="">0</option>
-						        <option value="">1</option>
-						        <option value="">2</option>
-						        <option value="">3</option>
-						        <option value="">4</option>
-						        <option value="">5</option>
-						        <option value="">6</option>
-						        <option value="">7</option>
-						        <option value="">8</option>
-						        <option value="">9</option>
-						        <option value="">10</option>
-						      </select>
-						    </div>
-						</div>
-					</div>
-				</nav>
-		    </div>
-		</div>
-	</div>
-	<br>
-	<div class="card">
-		<header class="card-header">
-			<p class="card-header-title is-medium">
-			  <strong>Game 2</strong>
-			</p>
-			<a href="#" class="card-header-icon" aria-label="more options">
-			  <span class="icon">
-			    <i class="fas fa-angle-down" aria-hidden="true"></i>
-			  </span>
-			</a>
-		</header>
-		<div class="card-content">
-		    <div class="content">
-		      	<nav class="level">
-					<div class="level-item has-text-centered">
-						<div>
-						  	<h2 class="heading">Team 1</h2>
-						  	<div class="select is-primary">
-						      <select>
-						        <option>Select Score</option>
-						        <option value="">0</option>
-						        <option value="">1</option>
-						        <option value="">2</option>
-						        <option value="">3</option>
-						        <option value="">4</option>
-						        <option value="">5</option>
-						        <option value="">6</option>
-						        <option value="">7</option>
-						        <option value="">8</option>
-						        <option value="">9</option>
-						        <option value="">10</option>
-						      </select>
-						    </div>
-						</div>
-					</div>
-					<div class="level-item has-text-centered">
-						<div>
-						  	<h2 class="heading">Team 2</h2>
-						  	<div class="select is-primary">
-						      <select>
-						        <option>Select Score</option>
-						        <option value="">0</option>
-						        <option value="">1</option>
-						        <option value="">2</option>
-						        <option value="">3</option>
-						        <option value="">4</option>
-						        <option value="">5</option>
-						        <option value="">6</option>
-						        <option value="">7</option>
-						        <option value="">8</option>
-						        <option value="">9</option>
-						        <option value="">10</option>
-						      </select>
-						    </div>
-						</div>
-					</div>
-				</nav>
-		    </div>
-		</div>
+	  	<div class="column"></div>
 	</div>
 	
 	<br>

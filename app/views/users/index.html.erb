@@ -12,23 +12,26 @@
 		</nav>
 
 		<hr>
-
-		<% @users.each do |user| %>
-			<div class="card">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-content">
-							<p class="title is-4">
-								<%= link_to user.firstname, user %>
-							</p>
+		<% if @users.any? %>	
+			<% @users.each do |user| %>
+				<div class="card">
+					<div class="card-content">
+						<div class="media">
+							<div class="media-content">
+								<p class="title is-4">
+									<%= link_to user.first_name, user %>
+								</p>
+							</div>
+						</div>
+						<div class="content">
+							<%= user.last_name %>
 						</div>
 					</div>
-					<div class="content">
-						<%= user.lastname %>
-					</div>
 				</div>
-			</div>
-			<br>
+				<br>
+			<% end %>
+		<% else %>
+			<h1 class="title is-large has-text-centered">No User Record</h1>
 		<% end %>
 	</div>
 </section>
